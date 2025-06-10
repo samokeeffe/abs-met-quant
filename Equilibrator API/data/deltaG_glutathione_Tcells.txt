@@ -1,0 +1,3 @@
+Cell Type=CD4 ID=Glutathione Reductase  ΔG'=-30.22 kJ/mol  ΔG'_error=0.78 kJ/mol
+Cell Type=CD8 ID=Glutathione Reductase  ΔG'=-28.93 kJ/mol  ΔG'_error=0.78 kJ/mol
+Cell Type=Jurkat ID=Glutathione Reductase  ΔG'=-30.20 kJ/mol  ΔG'_error=0.78 kJ/mol

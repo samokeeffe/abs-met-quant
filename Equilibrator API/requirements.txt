@@ -1,0 +1,4 @@
+numpy
+equilibrator-api
+cobra
+pint
