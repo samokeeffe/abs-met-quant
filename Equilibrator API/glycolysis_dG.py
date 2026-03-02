@@ -28,7 +28,7 @@ abundance_cd4 = {
     "f6p": Q_("0.206 mM"),
     "fdp": Q_("75.3 uM"),
     "nad": Q_("0.313 mM"),
-    "nadh": Q_("11.8 uM"),
+    "nah": Q_("11.8 uM"),
     "3pg": Q_("12.8 uM"),
     "pep": Q_("5.96 uM"),
     "pyr": Q_("6.15 mM"),
