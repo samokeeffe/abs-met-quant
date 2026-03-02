@@ -10,7 +10,7 @@ Samantha O’Keeffe, Harin Sim, Elle McCue, Junyoung O. Park
 University of California, Los Angeles
 
 Folder descriptions:
-1) Bootstrapping method (.R) and data (.rds)
+1) Bootstrapping method (.R) and sample data (.rds)
 2) Non-linear least squares fitting for gaussian fit (.R)
 3) Dissociation constants, Km and Ki values from BRENDA database (.py), and random permutations of [met]/Km (.csv)
 4) Equilibrator API (.py), Gibbs Free Energies of glycolysis and glutathione reductase for different T cell types (.txt) and error propagation (.xlxs)
