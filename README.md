@@ -15,5 +15,5 @@ Folder descriptions:
 3) Dissociation constants, Km and Ki values from BRENDA database (.py), and random permutations of [met]/Km (.csv)
 4) Equilibrator API (.py), Gibbs Free Energies of glycolysis and glutathione reductase for different T cell types (.txt) and error propagation (.xlxs)
 5) Zipfs Law fitting and reaction count functions (.m) and workspace files (.mat)
-6) Data tables for figures 1, 3 and 6
+6) Data tables for figures 1, 3, 6 and S9
 
