@@ -6,7 +6,7 @@ load('Recon3DModel_301.mat') %https://www.vmh.life/#downloadview
 % Helper to define “has a numeric value” for a given column
 hasValue = @(col) ~isnan(str2double(string(concentration_data{:,col})));
 
-%keggCol = 15;
+keggCol = 15;
 
 S = struct();
 
@@ -25,7 +25,7 @@ S.Jurkat.mask = hasValue(5);
 S.Jurkat.met  = concentration_data{S.Jurkat.mask, 1};
 S.Jurkat.KEGG = concentration_data{S.Jurkat.mask, keggCol};
 
-%%
+%
 %[~, order] = sort(str2double(string(CD4_ordered_max(:,3))));
 CD4_mets_ordered = string(S.CD4.met(CD4_ordered_max(:,3)));
 CD8_mets_ordered = string(S.CD8.met(CD8_ordered_max(:,3)));
@@ -48,11 +48,11 @@ ax(1,3) = nexttile(tl, 3);
 PlotHistograms(S.CD4, CD4_ordered_max, Recon3DModel ,ax(1,1),35,50);
 
 PlotHistograms(S.CD8, CD8_ordered_max, Recon3DModel,ax(1,2), 32,50);
-% % 
+
 PlotHistograms(S.Jurkat, Jurkat_ordered_max, Recon3DModel, ax(1,3), 26, 50);
 
 
-%end
+
 
  %% find metabolite indices
 function idx = kegg2model(queryKEGG, modelKEGG)
@@ -354,7 +354,7 @@ function ScatterRxnCountFlip(CellStructure, ordered_max, ordered_vec, Recon3DMod
     
     %% ---- REMOVE SPECIFIC METABOLITES BY NAME ----
     removeMetNames = string({ ...
-        %'atp', 'coa', 'gtp','utp','gthrd','gthox','adp','nad','udp','ctp','amp','gdp','dgmp','nadph','gmp','nadh','imp','nadp','camp','fad' ...   % <-- put the exact names you want removed here
+        'atp', 'coa', 'gtp','utp','gthrd','gthox','adp','nad','udp','ctp','amp','gdp','dgmp','nadph','gmp','nadh','imp','nadp','camp','fad' ...   % <-- put the exact names you want removed here
     });
 
     
@@ -384,25 +384,15 @@ function ScatterRxnCountFlip(CellStructure, ordered_max, ordered_vec, Recon3DMod
     r2_f = mdl_f.Rsquared.Ordinary
  
     hold(ax1,"off")
-    %yyaxis(ax1,"right")
+
     scatter(ax1, rxnCount_f, concentration_f,'filled','b')
-    %hold on
+
     hold(ax1, "on")
     xscale(ax1,"log")
     yscale(ax1,"log")
     ylabel(ax1,'Concentration (M)');
     xlabel(ax1, 'Reaction Count');
-    %title(ax1, 'Distributions of number of reaction involved with each metabolite')
-    % Label points above threshold
-    threshold = 150;
-    idx = find(rxnCount_f > threshold);
-
-    for i = idx'
-        text(ax1,concentration_f(i), rxnCount_f(i), metNames_f(i), ...
-            'FontSize', 8, ...
-            'VerticalAlignment', 'bottom', ...
-            'HorizontalAlignment', 'right');
-    end
+   
 
     % Add R^2 label in top-left corner of axes
     txt = sprintf('R^2 = %.3f', r2_f);
@@ -426,19 +416,8 @@ function ScatterRxnCountFlip(CellStructure, ordered_max, ordered_vec, Recon3DMod
     scatter(ax1,  rxnCount_cf, concentration_cf,'filled','r');
     xscale(ax1,"log")
    
-    ylim(ax1, [10^-7 10^-2])
+    ylim(ax1, [5*10^-7 10^-1])
 
-
-    % Label points above threshold
-    threshold = 500;
-    idx = find(rxnCount_cf > threshold);
-
-    for i = idx'
-        text(ax1,concentration_cf(i), rxnCount_cf(i), metNames_cf(i), ...
-            'FontSize', 8, ...
-            'VerticalAlignment', 'bottom', ...
-            'HorizontalAlignment', 'right');
-    end
 
     % Add R^2 label in top-left corner of axes
     txt = sprintf('R^2 = %.3f', r2_cf);
